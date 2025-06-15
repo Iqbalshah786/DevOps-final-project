@@ -2,6 +2,22 @@
 
 This project demonstrates a fully automated DevOps pipeline using Jenkins (in Docker) that provisions infrastructure on Azure, configures a web server, and deploys a static web application.
 
+## Screenshots
+
+### Pipeline Success
+
+The following screenshot shows the successful completion of the DevOps pipeline:
+
+![Pipeline Success](assignment.png)
+
+_Screenshot showing the successful Jenkins pipeline execution with all stages completed._
+
+## Live Application
+
+After successful deployment, the web application will be accessible at the public IP provided in the pipeline output.
+
+Live URl: `http://52.191.253.131`
+
 ## Objective
 
 Build a fully automated DevOps pipeline using Jenkins (in Docker) that:
@@ -108,22 +124,6 @@ docker run -d \
 - ✅ Static site deployed correctly
 - ✅ Jenkins pipeline triggers and completes all stages
 - ✅ Clean repo & documentation
-
-## Screenshots
-
-### Pipeline Success
-
-The following screenshot shows the successful completion of the DevOps pipeline:
-
-![Pipeline Success](assignment.png)
-
-_Screenshot showing the successful Jenkins pipeline execution with all stages completed._
-
-## Live Application
-
-After successful deployment, the web application will be accessible at the public IP provided in the pipeline output.
-
-Live URl: `http://52.191.253.131`
 
 ## Troubleshooting
 
