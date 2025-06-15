@@ -36,8 +36,8 @@ pipeline {
                         sh '''
                             export ARM_CLIENT_ID=${AZURE_CREDENTIALS_USR}
                             export ARM_CLIENT_SECRET=${AZURE_CREDENTIALS_PSW}
-                            export ARM_TENANT_ID=08718e05-8fc8-41f3-a22b-cb3e391f385c
-                            export ARM_SUBSCRIPTION_ID=05fb4144-8986-4eb3-a078-f5ef74f2eb08
+                            export ARM_TENANT_ID=${AZURE_CREDENTIALS_TENANT_ID:-"YOUR_TENANT_ID"}
+                            export ARM_SUBSCRIPTION_ID=${AZURE_CREDENTIALS_SUBSCRIPTION_ID:-"YOUR_SUBSCRIPTION_ID"}
                             terraform init
                         '''
                     }
@@ -53,8 +53,8 @@ pipeline {
                         sh '''
                             export ARM_CLIENT_ID=${AZURE_CREDENTIALS_USR}
                             export ARM_CLIENT_SECRET=${AZURE_CREDENTIALS_PSW}
-                            export ARM_TENANT_ID=08718e05-8fc8-41f3-a22b-cb3e391f385c
-                            export ARM_SUBSCRIPTION_ID=05fb4144-8986-4eb3-a078-f5ef74f2eb08
+                            export ARM_TENANT_ID=${AZURE_CREDENTIALS_TENANT_ID:-"YOUR_TENANT_ID"}
+                            export ARM_SUBSCRIPTION_ID=${AZURE_CREDENTIALS_SUBSCRIPTION_ID:-"YOUR_SUBSCRIPTION_ID"}
                             terraform plan -out=tfplan
                         '''
                     }
@@ -188,8 +188,8 @@ pipeline {
                         sh '''
                             export ARM_CLIENT_ID=${AZURE_CREDENTIALS_USR}
                             export ARM_CLIENT_SECRET=${AZURE_CREDENTIALS_PSW}
-                            export ARM_TENANT_ID=$(az account show --query tenantId -o tsv)
-                            export ARM_SUBSCRIPTION_ID=$(az account show --query id -o tsv)
+                            export ARM_TENANT_ID=08718e05-8fc8-41f3-a22b-cb3e391f385c
+                            export ARM_SUBSCRIPTION_ID=05fb4144-8986-4eb3-a078-f5ef74f2eb08
                             terraform apply -auto-approve tfplan
                         '''
                     }
@@ -283,8 +283,6 @@ pipeline {
         }
         cleanup {
             echo 'Cleaning up workspace...'
-            // Uncomment the following line if you want to destroy resources after each run
-            // sh 'terraform -chdir=terraform destroy -auto-approve || true'
         }
     }
 }
