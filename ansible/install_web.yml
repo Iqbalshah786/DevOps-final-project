@@ -1,0 +1,37 @@
+---
+- name: Install and configure Apache web server
+  hosts: webservers
+  become: yes
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install Apache
+      apt:
+        name: apache2
+        state: present
+
+    - name: Start and enable Apache
+      systemd:
+        name: apache2
+        state: started
+        enabled: yes
+
+    - name: Remove default Apache index page
+      file:
+        path: /var/www/html/index.html
+        state: absent
+
+    - name: Copy index.html to web server
+      copy:
+        src: ../app/index.html
+        dest: /var/www/html/index.html
+        owner: www-data
+        group: www-data
+        mode: '0644'
+
+    - name: Ensure Apache is running
+      systemd:
+        name: apache2
+        state: restarted
