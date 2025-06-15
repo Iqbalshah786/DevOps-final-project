@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     environment {
-        // Azure credentials - configure these in Jenkins credentials
+        // Azure credentials - configure  in Jenkins credentials
         AZURE_CREDENTIALS = credentials('azure-service-principal')
         SSH_KEY = credentials('ssh-private-key')
         TERRAFORM_VERSION = '1.5.0'
