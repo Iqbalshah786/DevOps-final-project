@@ -109,11 +109,21 @@ docker run -d \
 - ✅ Jenkins pipeline triggers and completes all stages
 - ✅ Clean repo & documentation
 
+## Screenshots
+
+### Pipeline Success
+
+The following screenshot shows the successful completion of the DevOps pipeline:
+
+![Pipeline Success](assignment.png)
+
+_Screenshot showing the successful Jenkins pipeline execution with all stages completed._
+
 ## Live Application
 
 After successful deployment, the web application will be accessible at the public IP provided in the pipeline output.
 
-Example: `http://[VM-PUBLIC-IP]`
+Live URl: `http://52.191.253.131`
 
 ## Troubleshooting
 
