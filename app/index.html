@@ -89,6 +89,45 @@
         opacity: 0.8;
       }
 
+      .student-info {
+        background: rgba(255, 255, 255, 0.15);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        padding: 1.5rem;
+        border-radius: 15px;
+        margin: 2rem 0;
+        text-align: left;
+      }
+
+      .student-info h2 {
+        text-align: center;
+        margin-bottom: 1rem;
+        color: #fff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        font-size: 1rem;
+      }
+
+      .info-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .info-label {
+        font-weight: bold;
+        color: #FFD700;
+      }
+
+      .info-value {
+        color: #fff;
+      }
+
       @keyframes pulse {
         0% {
           transform: scale(1);
@@ -110,6 +149,32 @@
     <div class="container">
       <h1 class="pulse">🚀 DevOps Pipeline Success!</h1>
       <p class="subtitle">Fully Automated Infrastructure Deployment</p>
+
+      <div class="student-info">
+        <h2>👨‍🎓 Student Information</h2>
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="info-label">Name:</span>
+            <span class="info-value">Iqbal Shah</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Registration #:</span>
+            <span class="info-value">2112114</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Section:</span>
+            <span class="info-value">A</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Course:</span>
+            <span class="info-value">DevOps</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Instructor:</span>
+            <span class="info-value">Tariq Khan Ghouri</span>
+          </div>
+        </div>
+      </div>
 
       <div class="success-message">
         <h2>✅ Deployment Complete</h2>
