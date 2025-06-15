@@ -128,9 +128,25 @@ resource "azurerm_linux_virtual_machine" "main" {
 
 # Generate inventory file for Ansible
 resource "local_file" "ansible_inventory" {
-  content = templatefile("${path.module}/inventory.tpl", {
-    public_ip     = azurerm_public_ip.main.ip_address
-    admin_username = var.admin_username
-  })
+  content = <<-EOT
+[webservers]
+${azurerm_public_ip.main.ip_address} ansible_user=${var.admin_username} ansible_ssh_private_key_file=~/.ssh/id_rsa
+EOT
   filename = "${path.module}/../ansible/inventory"
+}
+
+# Outputs for other modules to use
+output "public_ip_address" {
+  description = "The public IP address of the virtual machine"
+  value       = azurerm_public_ip.main.ip_address
+}
+
+output "vm_name" {
+  description = "The name of the virtual machine"
+  value       = azurerm_linux_virtual_machine.main.name
+}
+
+output "resource_group_name" {
+  description = "The name of the resource group"
+  value       = azurerm_resource_group.main.name
 }

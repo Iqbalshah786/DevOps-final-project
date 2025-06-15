@@ -31,5 +31,5 @@ variable "admin_username" {
 variable "public_key_path" {
   description = "Path to the public SSH key"
   type        = string
-  default     = "~/.ssh/id_rsa.pub"
+  default     = "/var/jenkins_home/.ssh/id_rsa.pub"
 }
